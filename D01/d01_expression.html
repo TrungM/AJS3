@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-app="myAPP" ng-controller="myControl">
+        <input type="text" ng-model="fname" >
+        <input type="text" ng-model="lname" >
+        <h1>Ho va ten:{{lname+" "+fname}}</h1>
+    </div>
+</body>
+<script>
+var app=angular.module("myApp",[]);
+app.controller("myControl",function($scope){
+    $scope.lname="nghiem thi";
+    $scope.fname="tam";
+});
+</script>
+</html>
