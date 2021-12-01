@@ -8,18 +8,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
 
 </head>
-<body ng-app="myapp" ng-directive="myDir">
+<body ng-app="myapp" >
     <h2>Custom directive demo</h2>
     <hr>
-    <div >
-        <my-Dir></my-Dir>
 
-    </div>
+        <my-heading></my-heading>
+        <div myheading></div>
+
+    
     <script>
         var app= angular.module("myapp",[]);
-        app.directive("myDir",function(){
+        app.directive("myheading",function(){
             return{
-                restrict:'E',
+                restrict:'A',
                 template:"<h3>Hello</h3><p>New Directive</p>"
             };
         });

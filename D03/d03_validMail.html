@@ -6,21 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+
 </head>
-<style>
-    .p1{
-        width: 10px;
-    }
-</style>
-<body>
-    <h2>ng-include demo</h2>
-    <hr>
-    <div ng-app="">
-        <div  class="p1" ng-include ="'d02-a.html'">
-        
-            <hr>
-            <p><b>Note:</b>worked on location wed server</p>
-        </div>
-    </div>
+<body ng-app>
+    <form action="#" name="formlogin">
+    <label for="">Name</label>
+    <input type="text" name="name" id="name"  ng-model="name" required placeholder="Enter your name">
+  </form>  
+  <p>The input vaild state is:</p>
+  <h3>{{formlogin.name.$valid}}</h3>
 </body>
 </html>

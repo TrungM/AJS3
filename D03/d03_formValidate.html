@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+
+    <style>
+        input.ng-pristine{
+            background-color: yellow;
+        }
+        input.ng-touched.ng-invalid{
+            background-color: red;
+        }
+        input.ng-touched.ng-valid{
+            background-color: green;
+        }
+    </style>
+</head>
+<body ng-app=>
+  <form action="d03_validMail.html" name="fromlogin" novalidate>
+      <input type="text" name="name" id="name" ng-model="name" placeholder="enter your frist name" required >
+      <input type="text" name="name" id="name" ng-model="name" placeholder="enter your Last name" required >
+      <input type="text" name="mail" id="mail" ng-model="email" placeholder="enter your Email" required >
+      <input type="submit" value="Sumbit" name="sumbit">
+
+  </form>
+
+</body>
+</html>
