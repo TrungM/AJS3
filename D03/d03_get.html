@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
 
 </head>
 <body ng-app="myApp" >
@@ -23,8 +23,12 @@
     var app=angular.module("myApp",[]);
 
     app.controller('studentCtrl',function($scope,$http){
-        $http.get("student.txt").then(function(response){
-            $scope.myData=response.data.records;
+        $http.get("student.json").then(function(ds){
+            $scope.myData=ds.data.ds;
+            console.log(ds.data.ds);
+
+            console.log($scope.myData);
+
         });
     });
 </script>

@@ -1,7 +1,0 @@
-{"records":[
-    {"Name:"Ninh Duy","Phone":"911","City":"Saigon"};
-    {"Name:"Tran Canh","Phone":"113","City":"Hue"};
-    {"Name:"Quang Khai","Phone":"117","City":"Hanoi"};
-    {"Name:"Nguyen Loc","Phone":"118","City":"Saigon"};
-    {"Name:"Hoang Ha","Phone":"1088","City":"cantho"};
-]}
