@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    
+</head>
+
+<body class="container" ng-app="myapp" controller="myCtr">
+    <form  action="" name="form" ng-submit="themMon()">
+        <h2>Add From</h2>
+        <div class="form-group">
+            <label for="">ID</label><br>
+            <input type="text" name="userid" ng-model="Id" required>
+            <span ng-show="form.userid.$error.required" style="color: red;">ID is required</span>
+        </div>
+        <div  class="form-group">
+            <label for="">Name</label><br>
+            <input type="text" name="Name" ng-model="ten" required>
+            <span ng-show="form.Name.$error.required" style="color: red;">Name is required</span>
+        </div>
+        <div  class="form-group">
+            <label for="">Price</label><br>
+            <input type="text" name="Price" ng-model="gia" required>
+            <span ng-show="form.Price.$error.required" style="color: red;">Price is required</span>
+        </div>
+        <div >
+            <input type="submit" value="Add" ng-model="Add"  ng-disabled="(form.userid.$pristine && form.userid.$invalid) ||
+           ( form.Name.$pristine && form.Name.$invalid)||(form.Price.$pristine && form.Price.$invalid)">
+        </div>
+    </form>
+</body>
+<script>
+var app=angular.module("myapp",[]);
+app.controller("myCtr",function($scope){
+    $scope.themMon=function(){
+        var mon_moi={
+            "ID":$scope.Id,
+            "Name":$scope.ten,
+            "Price":$scope.gia,
+        }
+    }
+    
+    if( alert("Thanh Cong")){
+        $scope.ds.push(mon_moi)
+       
+    }
+      
+
+  
+})
+</script>
+</html>
