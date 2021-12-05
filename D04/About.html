@@ -45,8 +45,8 @@
      var app=angular.module("myapp",[]);
 
 app.controller('menu',function($scope,$http){
-    $http.get("food.json").then(function(ds){
-        $scope.Menu=ds.data.ds;
+    $http.get("food.json").then(function(response){
+        $scope.Menu=response.data.ds;
 
     });
 });

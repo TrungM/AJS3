@@ -10,48 +10,49 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.min.js"> </script>
     <style>
         a {
-            padding: 60px;
+            padding: 40px;
             text-decoration: none;
 
         }
 
         span:hover {
-            background-color: green;
+            background-color: rgb(5, 94, 5);
+            color: blue;
+            text-align: center;
+
 
         }
-        nav{
+
+        nav {
             border: black solid thick;
+            height: 5rem;
+            width: 900px;
+            text-align: center;
         }
     </style>
 
 <body ng-app="myApp" class="container">
 
-    <nav class="table table-bordered" style="margin-top: 100px ">
-        <a href="#/!"><span style="font-size: 30px" ;>Home</span></a>
-        <a href="#!ds"><span style="font-size: 30px" ;>Food</span> </a>
-        <a href="#!new"><span style="font-size: 30px" ;>Add New Food</span> </a>
-        <a href="#!monmoi"><span style="font-size: 30px" ;>About</span></a>
+    <nav style="margin-top: 95px ">
+        <a href="#/!"><span style="font-size: 39px" ;>Home</span></a>
+        <a href="#!ds"><span style="font-size: 39px" ;>Food</span> </a>
+        <a href="#!new"><span style="font-size: 39px" ;>Add New Food</span> </a>
+        <a href="#!monmoi"><span style="font-size: 39px" ;>About</span></a>
     </nav>
-
-
-
-
     <div ng-view></div>
 </body>
+
 <script>
     let app = angular.module("myApp", ["ngRoute"]);
-
     app.config(function ($routeProvider) {
         $routeProvider
-            .when("/", {
-
-            })
             .when("/ds", {
                 templateUrl: "Menu.html"
             })

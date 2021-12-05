@@ -42,21 +42,18 @@
 <script>
 var app=angular.module("myapp",[]);
 app.controller("myCtr",function($scope){
-    $scope.themMon=function(){
-        var mon_moi={
-            "ID":$scope.Id,
-            "Name":$scope.ten,
-            "Price":$scope.gia,
+     $scope.themMon = function () {
+            let mon_moi = {
+                "ID": $scope.userid,
+                "Name": $scope.Name,
+                "Price": $scope.Price
+            };
+            console.log(mon_moi);
+            $scope.ds.push(mon_moi);
+            alert("Chuc Mung ban đã them mon thanh")
         }
-    }
     
-    if( alert("Thanh Cong")){
-        $scope.ds.push(mon_moi)
-       
-    }
-      
 
-  
 })
 </script>
 </html>

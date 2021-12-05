@@ -16,35 +16,37 @@
 
 </head>
 
-<body ng-app="myapp" ng-controller="menu" class="container">
+<body ng-app="myapp" ng-controller="myCtr" class="container">
+    
     <h2>Menu</h2>
     <table class="table table-bordered">
-        <tr class="row-md-2" >
+        <tr class="row-md-2">
             <th>ID</th>
             <th>Name</th>
             <th>Price</th>
         </tr>
-        <tr ng-repeat="x in Menu"  >
-            <td >
+        <tr ng-repeat="x in Menu">
+            <td>
                 {{x.ID}}
             </td>
-            <td >
+            <td>
                 {{x.Name}}
             </td>
             <td>
-                {{x.Price}}
-            </td>
+                {{x.Price}}</td>
         </tr>
     </table>
 </body>
 <script>
-     var app=angular.module("myapp",[]);
+    var app = angular.module("myapp", []);
+    app.controller("myCtr", function ($scope, $http) {
 
-app.controller('menu',function($scope,$http){
-    $http.get("food.json").then(function(ds){
-        $scope.Menu=ds.data.ds;
-
+        var promise = $http.get("food.json");
+        promise.then(function (response) {
+            $scope.Menu = response.data.ds;
+        });
+       
     });
-});
 </script>
+
 </html>
