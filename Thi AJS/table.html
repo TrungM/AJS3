@@ -1,0 +1,15 @@
+<div class="container">
+    <table class="table table-bordered ">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+        </tr>
+        <tr ng-repeat="x in ds|filter:Name">
+            <td>{{x.Name}}</td>
+            <td>{{x.Age}}</td>
+            <td>{{x.Email}}</td>
+        </tr>
+    </table>
+
+</div>

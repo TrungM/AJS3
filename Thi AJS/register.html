@@ -1,0 +1,26 @@
+
+<div class="container">
+    <form  action="" name="form" ng-submit="them()"  ng-controller="add" >
+        <h2>Add From</h2>
+        <div  class="form-group">
+            <label for="">Name</label><br>
+            <input type="text" name="Name" ng-model="ten"  required>
+            <span ng-show="form.Name.$error.required" style="color: red;">Name is required</span>
+        </div>
+        <div  class="form-group">
+            <label for="">Age</label><br>
+            <input type="text" name="age" ng-model="tuoi"  pattern="[8-12]{2,9}" required>
+            <span ng-show="form.age.$error.required" style="color: red;">Price is required</span>
+        </div>
+        <div>
+            <label>Email</label><br>
+            <input type="text" name="Email" ng-model="Email" pattern="[a-zA-Z0-9]{2,}@[a-zA-Z0-9]{0,9}.[a-zA-Z0-9]{0,9}" required>
+            <span ng-show="form.Email.$error.required" style="color: red;">Price is required</span>
+
+        </div>
+        <div >
+            <input type="submit" value="Add" ng-model="Add"  ng-disabled="(form.Name.$pristine && form.Name.$invalid) ||
+           ( form.age.$pristine && form.age.$invalid)||(form.Email.$pristine && form.Email.$invalid)">
+        </div>
+    </form>
+</div>

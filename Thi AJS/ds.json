@@ -1,0 +1,18 @@
+[
+    {
+        "Name": "Anh",
+        "Age": 20,
+        "Email": "anh@gmail.com"
+    },
+    {
+        "Name": "Binh",
+        "Age": 22,
+        "Email": "binh@fpt.edu.vn"
+    },
+    {
+        "Name": "Lan",
+        "Age": 22,
+        "Email": "lan@gmail.com"
+    }
+   
+]

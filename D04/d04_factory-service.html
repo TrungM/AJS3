@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
-<body>
-    
+
+<body ng-app="myApp">
+    <div>
+        <h2>Factory Demo</h2>
+        <hr>
+        <div>
+            <label for="">Input a positive</label>
+            <input type="number" name="number1"  ng-model="number" min=1 max=1000>
+            <button ng-click="calc()">Check</button>
+            <p>Result:{{result}}</p>
+        </div>
+    </div>
+
 </body>
+<script>
+    var app = angular.module("myApp", []);
+
+    app.factory('mathfactory', function () {
+        var f = {}
+
+        f.fnFac = function (number) {
+            var kq = 1;
+            for (var i = 2; i <= number; i++) {
+                kq *= i
+            }
+            return kq;
+        }
+        return f;
+    })
+
+
+
+    app.service("Service", function (mathfactory) {
+        this.result= function (number) {
+            return mathFactory.fnFac(number);
+        }
+    }
+
+    )
+</script>
+
 </html>

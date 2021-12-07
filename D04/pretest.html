@@ -1,71 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+</head>
 
+<body ng-app="myApp">
+    <div class="container" ng-controller="mainCTR">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th><a href="#/!">Home</a></th>
+                    <th><a href="#!food">Food</a></th>
+                    <th><a href="#!add">Add New</a></th>
+                    <th><a href="#!about">About</a></th>
+                </tr>
+            </thead>
+        </table>
 
-    <style>
-        a {
-            padding: 40px;
-            text-decoration: none;
+        <div ng-view></div>
 
-        }
+        <hr />
+        <div style="text-align: center; font-weight: bolder;">
+            &copy;Copyright Fpt Aptech
+        </div>
 
-        span:hover {
-            background-color: rgb(5, 94, 5);
-            color: blue;
-            text-align: center;
+        <script>
+            var app = angular.module("myApp", ["ngRoute"]);
+            app.config(function ($routeProvider) {
+                $routeProvider
+                   
+                    .when("/food", {
+                        templateUrl: "Menu.html"
+                    })
+                    .when("/add", {
+                        templateUrl: "ADD.html"
+                    })
 
-
-        }
-
-        nav {
-            border: black solid thick;
-            height: 5rem;
-            width: 900px;
-            text-align: center;
-        }
-    </style>
-
-<body ng-app="myApp" class="container">
-
-    <nav style="margin-top: 95px ">
-        <a href="#/!"><span style="font-size: 39px" ;>Home</span></a>
-        <a href="#!ds"><span style="font-size: 39px" ;>Food</span> </a>
-        <a href="#!new"><span style="font-size: 39px" ;>Add New Food</span> </a>
-        <a href="#!monmoi"><span style="font-size: 39px" ;>About</span></a>
-    </nav>
-    <div ng-view></div>
-</body>
-
-<script>
-    let app = angular.module("myApp", ["ngRoute"]);
-    app.config(function ($routeProvider) {
-        $routeProvider
-            .when("/ds", {
-                templateUrl: "Menu.html"
-            })
-
-            .when("/new", {
-                templateUrl: "ADD.html"
-            })
-            .when("/monmoi", {
-                templateUrl: "About.html"
             });
-    });
-</script>
 
 
+            //lap trinh cho controller de lay data tu file
+            app.controller('mainCTR', function ($scope, $http) {
+                $http.get("food.json").then(function (response) {
+                    $scope.ds = response.data;
+                    console.log($scope.ds)
+                });
+
+                $scope.remove = function (index) {
+                    if (confirm('are u sure ?')) {
+                        $scope.ds.splice(index, 1)
+                    }
+
+                }
+            });
+
+
+
+            app.controller('add', function ($scope) {
+                $scope.themMon = function () {
+                    var mon_moi={
+                    "ID": $scope.Id,
+                    "Name": $scope.ten,
+                    "Price": $scope.gia
+                }
+                    $scope.ds.push(mon_moi);
+
+                    alert("Add new food successfully!!!");
+                }
+
+            });
+
+        </script>
+
+
+    </div>
+</body>
 
 </html>

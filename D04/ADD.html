@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<div  class="container" >
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-    
-</head>
-
-<body class="container" ng-app="myapp" controller="myCtr">
-    <form  action="" name="form" ng-submit="themMon()">
+    <form  action="" name="form" ng-submit="themMon()"  ng-controller="add" >
         <h2>Add From</h2>
         <div class="form-group">
             <label for="">ID</label><br>
@@ -38,22 +23,6 @@
            ( form.Name.$pristine && form.Name.$invalid)||(form.Price.$pristine && form.Price.$invalid)">
         </div>
     </form>
-</body>
-<script>
-var app=angular.module("myapp",[]);
-app.controller("myCtr",function($scope){
-     $scope.themMon = function () {
-            let mon_moi = {
-                "ID": $scope.userid,
-                "Name": $scope.Name,
-                "Price": $scope.Price
-            };
-            console.log(mon_moi);
-            $scope.ds.push(mon_moi);
-            alert("Chuc Mung ban đã them mon thanh")
-        }
-    
 
-})
-</script>
-</html>
+</div>
+

@@ -5,8 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+
 </head>
 <body>
-    
+    <div>
+        <h2>Factory Demo</h2>
+        <hr>
+        <div ng-app="myApp" ng-controller="myControl">
+            <label for="">Input a positive</label>
+            <input type="number" name="number1" id="number1" ng-model="number" min=1 max=1000>
+            <button ng-click="calc()">Check</button>
+            <p>Result:{{result}}</p>
+        </div>
+    </div>
+
 </body>
+<script>
+    var app= angular.module("myApp",[]);
+
+app.factory('mathfactory',function(){
+    var f={}
+    f.fnPrime=function(n){
+        for(var i=2 ;i<=Math.sqr(n);i++){
+            if(n%i==0) return false;
+        }
+        return true;
+    }
+    return f;
+})
+
+
+
+    app.controller("myControl",function($scope, mathfactory){
+$scope.number=5;
+$scope.calc=function(){
+    var x= mathfactory.fnPrime($scope.number);
+    $scope.result=$scope.number + (x ? "is a Prime Number" : "is a Composite Number");
+}
+
+    })
+</script>
 </html>
